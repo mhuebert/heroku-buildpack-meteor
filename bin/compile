@@ -11,16 +11,12 @@ fetch_meteor() {
     return
   fi
 
-  eval $(curl install.meteor.com | grep '^VERSION=')
-  PACKAGE=meteor_${VERSION}-1_amd64.deb
-
-  echo "Fetching meteor deb package"
-  curl -o "$CACHE_DIR/$PACKAGE" "http://d3sqy0vbqsdhku.cloudfront.net/${PACKAGE}"
-
-  echo "Unpacking meteor"
   [ ! -d "$METEOR_HOME" ] && mkdir -p "$METEOR_HOME"
-  ar p "$CACHE_DIR/$PACKAGE" data.tar.gz | tar -C "$METEOR_HOME" -zxf -
-}
+  [ ! -d "$METEOR_HOME/lib" ] && mkdir -p "$METEOR_HOME/lib"
+  [ ! -d "$METEOR_HOME/bin" ] && mkdir -p "$METEOR_HOME/bin"
+  git clone https://github.com/mcgain/meteor "$METEOR_HOME/lib/meteor"
+  ln -s "$METEOR_HOME/lib/meteor/meteor" "$METEOR_HOME/bin/meteor"
+}  
 
 build() {
   ( 
