@@ -12,10 +12,10 @@ fetch_meteor() {
   fi
 
   [ ! -d "$METEOR_HOME" ] && mkdir -p "$METEOR_HOME"
-  [ ! -d "$METEOR_HOME/lib" ] && mkdir -p "$METEOR_HOME/lib"
-  [ ! -d "$METEOR_HOME/bin" ] && mkdir -p "$METEOR_HOME/bin"
-  git clone https://github.com/mcgain/meteor "$METEOR_HOME/lib/meteor"
-  ln -s "$METEOR_HOME/lib/meteor/meteor" "$METEOR_HOME/bin/meteor"
+  [ ! -d "$METEOR_HOME/usr/lib" ] && mkdir -p "$METEOR_HOME/usr/lib"
+  [ ! -d "$METEOR_HOME/usr/bin" ] && mkdir -p "$METEOR_HOME/usr/bin"
+  git clone https://github.com/mcgain/meteor "$METEOR_HOME/usr/lib/meteor"
+  ln -s "$METEOR_HOME/usr/lib/meteor/meteor" "$METEOR_HOME/usr/bin/meteor"
 }  
 
 build() {
