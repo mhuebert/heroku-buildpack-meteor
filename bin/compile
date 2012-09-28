@@ -6,10 +6,6 @@ METEOR_HOME=$BUILD_DIR/.meteor/local
 PATH=$METEOR_HOME/usr/bin:$METEOR_HOME/usr/lib/meteor/bin:$PATH
 
 fetch_meteor() {
-  if [ -f "$METEOR_HOME/usr/bin/meteor" ] ; then
-    # Skip if meteor is already fetched
-    return
-  fi
 
   [ ! -d "$METEOR_HOME" ] && mkdir -p "$METEOR_HOME"
   [ ! -d "$METEOR_HOME/usr/lib" ] && mkdir -p "$METEOR_HOME/usr/lib"
