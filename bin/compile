@@ -14,7 +14,7 @@ fetch_meteor() {
   [ ! -d "$METEOR_HOME" ] && mkdir -p "$METEOR_HOME"
   [ ! -d "$METEOR_HOME/usr/lib" ] && mkdir -p "$METEOR_HOME/usr/lib"
   [ ! -d "$METEOR_HOME/usr/bin" ] && mkdir -p "$METEOR_HOME/usr/bin"
-  git clone https://github.com/mcgain/meteor "$METEOR_HOME/usr/lib/meteor"
+  git clone -b auth https://github.com/meteor/meteor "$METEOR_HOME/usr/lib/meteor"
   ln -s "$METEOR_HOME/usr/lib/meteor/meteor" "$METEOR_HOME/usr/bin/meteor"
 }  
 
